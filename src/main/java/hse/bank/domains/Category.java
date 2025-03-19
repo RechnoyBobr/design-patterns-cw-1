@@ -11,8 +11,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 @Component
 public class Category {
-
-    private static int globalId;
+    
 
     @Getter
     private int id;

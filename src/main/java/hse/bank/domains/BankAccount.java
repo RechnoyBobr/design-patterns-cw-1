@@ -1,13 +1,13 @@
 package hse.bank.domains;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 /**
  * Bank account class.
  */
-@RequiredArgsConstructor
+@AllArgsConstructor
 @Component
 public class BankAccount {
     /**
@@ -26,6 +26,6 @@ public class BankAccount {
      * Account balance.
      */
     @Getter
-    private final int balance;
+    private int balance;
 
 }
