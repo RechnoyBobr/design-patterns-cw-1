@@ -1,25 +1,32 @@
 package hse.bank.domains;
 
-import hse.bank.enums.CategoryType;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 /**
  * Operation category class.
  */
-@RequiredArgsConstructor
+@AllArgsConstructor
 @Component
 public class Category {
-    
 
+    /**
+     * Category id.
+     */
     @Getter
     private int id;
 
+    /**
+     * Type of transaction (income or expense - true or false)
+     */
     @Getter
     private boolean isPositive;
 
+    /**
+     * Category name. Implemented with enum
+     */
     @Getter
-    private CategoryType name;
+    private String name;
 
 }
