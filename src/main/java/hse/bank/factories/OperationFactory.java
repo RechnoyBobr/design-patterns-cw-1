@@ -7,13 +7,15 @@ import java.time.LocalDateTime;
 public class OperationFactory {
     int globalId = -1;
 
-    Operation createOperation(OperationData data) {
+    public Operation createOperation(OperationData data) {
+        if (data.account().getBalance() < data.amount() && !data.type()) {
+            throw new IllegalArgumentException("Insufficient funds");
+        }
         globalId++;
+        int newBalance = data.type() ? data.account().getBalance() + data.amount() : data.account().getBalance() - data.amount();
+        data.account().setBalance(newBalance);
         return new Operation(globalId, data.type(), data.account(), data.amount(), LocalDateTime.now(), data.category(), data.desc());
     }
-    Operation createOperationWithTime(OperationData data, LocalDateTime time) {
-        globalId++;
-        return new Operation(globalId, data.type(), data.account(), data.amount(), time, data.category(), data.desc());
-    }
+
 
 }

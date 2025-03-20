@@ -2,6 +2,7 @@ package hse.bank.domains;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @AllArgsConstructor
 @Component
-public class BankAccount {
+public class BankAccount{
     /**
      * Account id.
      */
@@ -26,6 +27,7 @@ public class BankAccount {
      * Account balance.
      */
     @Getter
+    @Setter
     private int balance;
 
 }

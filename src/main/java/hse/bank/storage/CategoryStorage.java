@@ -13,5 +13,8 @@ public class CategoryStorage {
         categories.add(category);
     }
 
+    public Category getCategory(int id) {
+        return categories.stream().filter(c -> c.getId() == id).findFirst().orElse(null);
+    }
 
 }

@@ -12,8 +12,11 @@ public class AccountStorage {
     @Getter
     private List<BankAccount> accounts;
 
-    public void appendUser(BankAccount account) {
+    public void addUser(BankAccount account) {
         accounts.add(account);
+    }
+    public BankAccount getUserById(int id) {
+        return accounts.stream().filter(account -> account.getId() == id).findFirst().orElse(null);
     }
 
     public void deleteUserById(int id) {
