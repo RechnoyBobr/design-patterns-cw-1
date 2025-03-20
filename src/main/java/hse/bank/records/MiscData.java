@@ -8,4 +8,12 @@ public record MiscData(int id, String filePath, IOFormat format) {
             filePath = "";
         }
     }
+
+    public MiscData(int id) {
+        this(id, "", IOFormat.CSV);
+    }
+
+    public MiscData(String filePath, IOFormat format) {
+        this(0, filePath, format);
+    }
 }

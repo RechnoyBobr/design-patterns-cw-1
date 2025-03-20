@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
  * Operation category class.
  */
 @AllArgsConstructor
-@Component
 public class Category {
 
     /**

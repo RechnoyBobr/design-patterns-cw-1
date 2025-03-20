@@ -5,12 +5,15 @@ import hse.bank.cmd.Command;
 import hse.bank.records.CommandData;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.springframework.stereotype.Component;
+
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @AllArgsConstructor
+@Component
 public class CommandDecorator {
     private final List<Long> operationTimes = new ArrayList<>();
 

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
  * Bank account class.
  */
 @AllArgsConstructor
-@Component
 public class BankAccount{
     /**
      * Account id.
@@ -28,6 +27,6 @@ public class BankAccount{
      */
     @Getter
     @Setter
-    private int balance;
+    private double balance;
 
 }

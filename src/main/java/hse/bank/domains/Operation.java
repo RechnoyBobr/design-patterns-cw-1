@@ -2,13 +2,12 @@ package hse.bank.domains;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.stereotype.Component;
+
 import java.time.LocalDateTime;
 import java.util.Optional;
 
 
 @AllArgsConstructor
-@Component
 @Getter
 public class Operation {
 
@@ -25,26 +24,26 @@ public class Operation {
     /**
      * Account of transaction.
      */
-    BankAccount accountId;
+    private BankAccount account;
 
     /**
      * Transaction amount.
      */
-    int amount;
+    private double amount;
 
     /**
      * Date of transaction.
      */
-    LocalDateTime date;
+    private LocalDateTime date;
 
     /**
      * Category of transaction.
      */
-    Category categoryId;
+    private Category category;
 
     /**
      * Optional description string.
      */
-    Optional<String> description;
+    private Optional<String> description;
 
 }

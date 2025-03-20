@@ -1,4 +1,4 @@
 package hse.bank.records;
 
-public record BankAccountData(String name, int initialBalance) implements ObjectData {
+public record BankAccountData(String name, double initialBalance) implements ObjectData {
 }

@@ -2,19 +2,27 @@ package hse.bank.storage;
 
 import hse.bank.domains.Category;
 import lombok.Getter;
+import lombok.Setter;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CategoryStorage {
     @Getter
-    private final List<Category> categories = new ArrayList<>();
+    @Setter
+    private static List<Category> categories = new ArrayList<>();
 
-    public void addCategory(Category category) {
+    public static void addCategory(Category category) {
         categories.add(category);
     }
 
-    public Category getCategory(int id) {
+    public static Category getCategoryById(int id) {
         return categories.stream().filter(c -> c.getId() == id).findFirst().orElse(null);
     }
 
+    public static void deleteCategoryById(int id) {
+        categories.removeIf(c -> c.getId() == id);
+    }
 }
