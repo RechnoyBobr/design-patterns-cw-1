@@ -38,10 +38,9 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
-
+    implementation("com.google.code.gson:gson")
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
-
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")

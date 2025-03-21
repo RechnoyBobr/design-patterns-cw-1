@@ -1,31 +1,27 @@
 package hse.bank.cmd;
 
-import hse.bank.domains.*;
 import hse.bank.records.CommandData;
 import hse.bank.storage.AccountStorage;
 import hse.bank.storage.CategoryStorage;
 import hse.bank.storage.OperationStorage;
 import org.springframework.stereotype.Component;
 
+/**
+ * Get cmd.
+ */
 @Component
 public class GetCmd implements Command {
-    AccountStorage accountStorage;
-    OperationStorage operationStorage;
-    CategoryStorage categoryStorage;
 
-    public GetCmd(AccountStorage accountStorage, OperationStorage operationStorage, CategoryStorage categoryStorage) {
-        this.accountStorage = accountStorage;
-        this.operationStorage = operationStorage;
-        this.categoryStorage = categoryStorage;
-
-    }
 
     @Override
     public CmdResult execute(CommandData data) {
+        if (data.miscData().id() == CommandData.MISC_DATA.id()) {
+            return new CmdResult<>(CategoryStorage.getCategories(), null);
+        }
         return switch (data.domainType()) {
-            case ACCOUNT -> new CmdResult<BankAccount>(accountStorage.getUserById(data.miscData().id()), null);
-            case OPERATION -> new CmdResult<Operation>(operationStorage.getOperationById(data.miscData().id()), null);
-            case CATEGORY -> new CmdResult<Category>(categoryStorage.getCategoryById(data.miscData().id()), null);
+            case ACCOUNT -> new CmdResult<>(AccountStorage.getUserById(data.miscData().id()), null);
+            case OPERATION -> new CmdResult<>(OperationStorage.getOperationById(data.miscData().id()), null);
+            case CATEGORY -> new CmdResult<>(CategoryStorage.getCategoryById(data.miscData().id()), null);
         };
     }
 }
